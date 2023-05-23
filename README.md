@@ -1,17 +1,14 @@
 # flutter_store_app
 
-A new Flutter project.
+flutter project using Bloc and fakestoreapi
 
-## Getting Started
+SS
 
-This project is a starting point for a Flutter application.
+HOME SCREEN
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot from 2023-05-23 23 18 43](https://github.com/primantorodwiyogo/flutter-store-app/assets/132739647/0bf4cce4-4a54-4884-950e-b734ba7f6a02)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter-store-app
+DETAIL SCREEN
+
+![Screenshot from 2023-05-23 23 18 50](https://github.com/primantorodwiyogo/flutter-store-app/assets/132739647/b3d563ca-8d6d-4075-9158-a8b3b129eb30)
