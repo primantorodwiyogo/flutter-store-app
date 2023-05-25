@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/allproduct.dart';
+// import '../../../models/allproduct.dart';
+import '../../../models/product.dart';
 import '../../details/detail.dart';
 
 class ContentHome extends StatelessWidget {
-  const ContentHome({super.key, required this.allproduct});
+  const ContentHome({super.key, required this.product});
 
-  final AllProduct allproduct;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ContentHome extends StatelessWidget {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return DetailScreen(allproduct: allproduct);
+            return DetailScreen(product: product);
           },
         ));
       },
@@ -28,7 +29,7 @@ class ContentHome extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Image.network(
-                  allproduct.image,
+                  product.image,
                   // scale: 6,
                   // height: 100,
                   // width: 100,
@@ -37,13 +38,13 @@ class ContentHome extends StatelessWidget {
               ),
             ),
             Text(
-              allproduct.title,
+              product.title,
               maxLines: 2,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('\$ ${allproduct.price}'),
+                Text('\$ ${product.price}'),
                 MaterialButton(onPressed: () {}, child: const Text("Buy"))
               ],
             )

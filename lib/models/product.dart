@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-List<AllProduct> allProductFromJson(String str) =>
-    List<AllProduct>.from(json.decode(str).map((x) => AllProduct.fromJson(x)));
+List<Product> productFromJson(String str) =>
+    List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
 
-String allProductToJson(List<AllProduct> data) =>
+String allProductToJson(List<Product> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class AllProduct {
+class Product {
   final int id;
   final String title;
   final double price;
@@ -15,7 +15,7 @@ class AllProduct {
   final String image;
   final Rating rating;
 
-  AllProduct({
+  Product({
     required this.id,
     required this.title,
     required this.price,
@@ -25,7 +25,7 @@ class AllProduct {
     required this.rating,
   });
 
-  factory AllProduct.fromJson(Map<String, dynamic> json) => AllProduct(
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
         title: json["title"],
         price: json["price"]?.toDouble(),

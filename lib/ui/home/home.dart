@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_store_app/bloc/product/product_bloc.dart';
 
-import '../../bloc/allproduct_bloc.dart';
+
+// import '../../bloc/product/allproduct_bloc.dart';
 import 'components/content.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,14 +20,14 @@ class _HomeScreenState extends State<HomeScreen> {
       // appBar: AppBar(
       //   title: const Text("home"),
       // ),
-      body: BlocBuilder<AllproductBloc, AllproductState>(
+      body: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) {
-          if (state is AllproductLoading) {
+          if (state is ProductLoading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
-          if (state is AllproductSuccess) {
+          if (state is ProductSuccess) {
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -34,10 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   childAspectRatio: 0.8),
               itemBuilder: (context, index) {
                 return ContentHome(
-                  allproduct: state.allproduct[index],
+                  product: state.product[index],
                 );
               },
-              itemCount: state.allproduct.length,
+              itemCount: state.product.length,
             );
           }
           return const Center(

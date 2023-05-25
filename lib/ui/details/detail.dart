@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../models/allproduct.dart';
+import '../../models/product.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key, required this.allproduct});
-  final AllProduct allproduct;
+  const DetailScreen({super.key, required this.product});
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,7 @@ class DetailScreen extends StatelessWidget {
                 children: [
                   ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                      child:
-                          Image.network(allproduct.image, fit: BoxFit.cover)),
+                      child: Image.network(product.image, fit: BoxFit.cover)),
                   Padding(
                     padding: const EdgeInsets.only(top: 250),
                     child: Center(
@@ -33,7 +32,7 @@ class DetailScreen extends StatelessWidget {
                         child: SizedBox.fromSize(
                           size: const Size.fromRadius(144),
                           child: Image.network(
-                            allproduct.image,
+                            product.image,
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -46,7 +45,7 @@ class DetailScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            allproduct.title,
+                            product.title,
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 25),
                           ),
@@ -55,8 +54,8 @@ class DetailScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(allproduct.category),
-                                Text(allproduct.price.toString())
+                                Text(product.category),
+                                Text(product.price.toString())
                               ],
                             ),
                           )
@@ -64,32 +63,11 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(10.0),
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Card(
-                  //         color: Colors.transparent,
-                  //         child: IconButton(
-                  //             onPressed: () {
-                  //               Navigator.pop(context);
-                  //             },
-                  //             icon: Icon(Icons.arrow_back_ios)),
-                  //       ),
-                  //       Card(
-                  //         color: Colors.transparent,
-                  //         child: IconButton(
-                  //             onPressed: () {}, icon: Icon(Icons.favorite)),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // )
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Text(allproduct.description),
+                child: Text(product.description),
               )
             ],
           )
@@ -100,13 +78,11 @@ class DetailScreen extends StatelessWidget {
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              // primary: Colors.green,
-              // onPrimary: Colors.white,
               shadowColor: Colors.greenAccent,
               elevation: 3,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(32.0)),
-              minimumSize: const Size(200, 40), //////// HERE
+              minimumSize: const Size(200, 40),
             ),
             onPressed: () {},
             child: Row(
@@ -115,7 +91,7 @@ class DetailScreen extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                Text(allproduct.price.toString()),
+                Text(product.price.toString()),
               ],
             ),
           ),
