@@ -1,12 +1,17 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show immutable;
+
+import 'package:equatable/equatable.dart';
+
 List<Product> productFromJson(String str) =>
     List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
 
 String allProductToJson(List<Product> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Product {
+@immutable
+class Product extends Equatable {
   final int id;
   final String title;
   final double price;
@@ -15,7 +20,7 @@ class Product {
   final String image;
   final Rating rating;
 
-  Product({
+  const Product({
     required this.id,
     required this.title,
     required this.price,
@@ -44,6 +49,10 @@ class Product {
         "image": image,
         "rating": rating.toJson(),
       };
+
+  @override
+  List<Object?> get props =>
+      [id, title, price, description, category, image, rating];
 }
 
 class Rating {
@@ -65,3 +74,5 @@ class Rating {
         "count": count,
       };
 }
+
+enum ProductCategories { all }
